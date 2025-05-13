@@ -38,6 +38,7 @@ body {
   margin-bottom: 16px;
   cursor: pointer;
   position: relative;
+  transition: all 0.3s ease;
 }
 
 .option input {
@@ -46,6 +47,9 @@ body {
 
 .option.active {
   border: 2px solid #e53981;
+  background-color: #fff0f5;
+  box-shadow: 0 0 10px rgba(229, 57, 129, 0.2);
+  transform: scale(1.03);
 }
 
 .option .top-row {
@@ -101,6 +105,10 @@ body {
   border-radius: 0 6px 0 6px;
 }
 
+.hidden {
+  display: none;
+}
+
 .variant-selects {
   margin-top: 12px;
 }
@@ -150,6 +158,7 @@ body {
   border-radius: 8px;
   cursor: pointer;
   opacity: 0.8;
+  transition: opacity 0.2s ease;
 }
 
 .add-to-cart:hover {
