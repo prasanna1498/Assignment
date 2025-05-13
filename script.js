@@ -1,14 +1,22 @@
 function selectOption(num) {
-  const allOptions = document.querySelectorAll('.option');
-  allOptions.forEach((el, i) => {
-    el.classList.remove('active');
-    document.getElementById(`unit${i + 1}`).checked = false;
+  const options = document.querySelectorAll('.option');
+  const prices = { 1: 10.00, 2: 18.00, 3: 24.00 };
+
+  options.forEach((option, index) => {
+    const id = index + 1;
+    const input = document.getElementById(`unit${id}`);
+    const variants = option.querySelector('.variant-selects');
+
+    if (id === num) {
+      option.classList.add('active');
+      input.checked = true;
+      if (variants) variants.classList.remove('hidden');
+    } else {
+      option.classList.remove('active');
+      input.checked = false;
+      if (variants) variants.classList.add('hidden');
+    }
   });
 
-  const selected = document.getElementById(`unit${num}`).parentElement;
-  selected.classList.add('active');
-  document.getElementById(`unit${num}`).checked = true;
-
-  const prices = { 1: 10.00, 2: 18.00, 3: 24.00 };
   document.getElementById('total').textContent = `$${prices[num].toFixed(2)} USD`;
 }
